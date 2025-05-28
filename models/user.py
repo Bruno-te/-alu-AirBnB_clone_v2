@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-"""User model"""
+# models/user.py
+from sqlalchemy import Column, String
+from models.base_model import BaseModel, Base
 
-from models.base_model import BaseModel
+class User(BaseModel, Base):
+    __tablename__ = 'users'
 
-
-class User(BaseModel):
-    """User class"""
-
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    email = Column(String(128), nullable=False)
+    password = Column(String(128), nullable=False)
+    first_name = Column(String(128), nullable=True)
+    last_name = Column(String(128), nullable=True)
